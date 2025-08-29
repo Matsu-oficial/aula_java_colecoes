@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Aluno {
     private int rm;
     private String nome;
@@ -36,5 +38,17 @@ public class Aluno {
     @Override
     public String toString() {
         return String.format("RM = %d | Nome = %s | Curso = %s", rm, nome, curso);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Aluno aluno = (Aluno) o;
+        return rm == aluno.rm && Objects.equals(nome, aluno.nome) && Objects.equals(curso, aluno.curso);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(rm);
     }
 }

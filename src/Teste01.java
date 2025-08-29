@@ -12,9 +12,14 @@ public class Teste01 {
         lista.add(new Aluno(10000, "Ana Maria", "SI"));
         lista.add(new Aluno(20000, "Ana Maria", "ADM")); */
 
+        lista.add(new Aluno(1, "Selmini", "CSX46"));
+        lista.add(new Aluno(1, "Selmini", "CSX13"));
+        lista.add(new Aluno(1, "Selmini", "CSX6"));
+
         lista.forEach(aluno -> System.out.println(aluno));
 
-        lista.sort(Comparator.comparing(Aluno::getNome));
+        lista.sort(Comparator.comparing(Aluno::getNome)
+                .thenComparing(Aluno::getCurso));
 
         System.out.println();
 
